@@ -7,15 +7,15 @@ define([
 
 function (_, Backbone, Workspace) {
 
-    var App = new Backbone.Marionette.Application();
+    // we need this guy to be in the global namespace
+    window.App = new Backbone.Marionette.Application();
 
     // An init function for your main application object
     App.addInitializer(function () {
       this.root = '/';
-      this.state = {}
 
       // set up the router
-      new Workspace({app: App})
+      new Workspace()
     });
 
     // Add as many of these as you like
