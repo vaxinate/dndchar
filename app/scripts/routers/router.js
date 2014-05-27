@@ -4,6 +4,7 @@ define([
 
 function (Backbone) {
   return Backbone.Router.extend({
+  var Workspace = Backbone.Router.extend({
     routes: {
       '': 'index'
     },
@@ -12,5 +13,6 @@ function (Backbone) {
       console.log(this.App)
     }
   });
+  return Workspace;
 });
 
