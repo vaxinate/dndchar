@@ -4,6 +4,22 @@ define([
 ],
 
 function (_, Backbone) {
+  var roll = function(numSides) {
+    return 1 + Math.floor(Math.random() * numSides);
+  };
+
+  var rollScore = function() {
+    var rolls = []
+    // roll 4d6
+    for (var k = 0; k < 4; k++) {
+      rolls.push(roll(6));
+    }
+
+    // sort the roles, ditch the lowest one, sum remaining rolls
+    rolls.sort().reverse().pop()
+    return _.reduce(rolls, function(memo, num){ return memo + num; }, 0);
+  }
+
   var Character = Backbone.Model.extend({
     defaults: {
       'str': 0,
@@ -20,6 +36,15 @@ function (_, Backbone) {
         App.vent.trigger("character:" + eventName, object);
       });
     },
+
+    randomizeScores: function() {
+      var score_keys = ['str', 'con', 'int', 'wis', 'cha', 'dex']
+      var scores = _.map(score_keys, function (key) { return rollScore() });
+
+      console.log(_.object(score_keys, scores))
+      this.set( _.object(score_keys, scores) )
+    }
+  });
 
   return Character;
 })
