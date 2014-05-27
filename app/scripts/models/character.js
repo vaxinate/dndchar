@@ -41,7 +41,6 @@ function (_, Backbone) {
       var score_keys = ['str', 'con', 'int', 'wis', 'cha', 'dex']
       var scores = _.map(score_keys, function (key) { return rollScore() });
 
-      console.log(_.object(score_keys, scores))
       this.set( _.object(score_keys, scores) )
     }
   });
