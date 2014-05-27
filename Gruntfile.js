@@ -93,17 +93,6 @@ module.exports = function (grunt) {
             },
             server: '.tmp'
         },
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc'
-            },
-            all: [
-                'Gruntfile.js',
-                'app/scripts/{,*/}*.js',
-                '!app/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
-            ]
-        },
         mocha: {
             all: {
                 options: {
@@ -276,7 +265,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'jshint',
         'test',
         'build'
     ]);
