@@ -1,17 +1,25 @@
 define([
   "backbone",
-  "models/character"
+  "models/character",
+  "views/AbilityScores"
 ],
 
-function (Backbone, Character) {
+function (Backbone, Character, AbilityScores) {
   var Workspace = Backbone.Router.extend({
     routes: {
       '': 'index'
     },
 
     index: function() {
-      character = new Character();
-      console.log(character)
+      App.addInitializer(function () {
+        this.character = new Character();
+
+        this.addRegions({
+          abilityScores: '#ability-scores'
+        });
+
+        this.abilityScores.show( new AbilityScores({model: this.character}) );
+      })
     }
   });
 
