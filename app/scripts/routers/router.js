@@ -1,18 +1,20 @@
 define([
-  "backbone"
+  "backbone",
+  "models/character"
 ],
 
-function (Backbone) {
-  return Backbone.Router.extend({
+function (Backbone, Character) {
   var Workspace = Backbone.Router.extend({
     routes: {
       '': 'index'
     },
 
     index: function() {
-      console.log(this.App)
+      character = new Character();
+      console.log(character)
     }
   });
+
   return Workspace;
 });
 
