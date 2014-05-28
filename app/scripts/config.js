@@ -20,7 +20,8 @@ requirejs.config({
             exports: '_'
         },
         bootstrap: {
-          deps: ["jquery"]
+          deps: ["jquery"],
+          exports: "$.fn.popover"
         }
     }
 });

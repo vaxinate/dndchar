@@ -2,7 +2,8 @@ require([
     "jquery",
     "backbone",
     "app",
-    "marionette"
+    "marionette",
+    "bootstrap"
 ],
 
 function ($, Backbone, App) {
