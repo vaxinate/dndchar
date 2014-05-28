@@ -30,7 +30,7 @@ function(Backbone, template) {
 
     onClickSwap: function(e) {
       var swapTo = this.$(e.currentTarget).data('swap-to')
-      App.vent.trigger('character:swapScores', [this.swapFrom, swapTo])
+      App.vent.trigger('character:scores:swap', { from: this.swapFrom, to: swapTo });
     }
   });
 
