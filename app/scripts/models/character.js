@@ -42,8 +42,6 @@ function (_, Backbone) {
       this.on('all', function(eventName, object) {
         App.vent.trigger("character:" + eventName, object);
       });
-
-      this.listenTo(App.vent, 'character:scores:swap', this.onScoreSwap);
     },
 
     strMod: {
