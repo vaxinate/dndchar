@@ -24,3 +24,4 @@
     <td><%= wis %></td>
   </tr>
 </table>
+<button class="btn btn-primary js-randomize">randomize!</button>
