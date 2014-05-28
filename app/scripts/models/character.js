@@ -43,7 +43,7 @@ function (_, Backbone) {
         App.vent.trigger("character:" + eventName, object);
       });
 
-      this.listenTo(App.vent, 'character:swapScores', this.onScoreSwap);
+      this.listenTo(App.vent, 'character:scores:swap', this.onScoreSwap);
     },
 
     strMod: {
@@ -79,15 +79,34 @@ function (_, Backbone) {
       this.set( _.object(score_keys, scores) )
     },
 
-    swap: function(from, to) {
+    swapScores: function(from, to) {
       var options = {}
       options[from] = this.get(to);
       options[to] = this.get(from);
       this.set(options);
     },
 
-    onScoreSwap: function(scoreLabelPair) {
-      this.swap(scoreLabelPair[0], scoreLabelPair[1])
+    registerEventHandlers: function() {
+      var _this = this;
+      _.each(arguments, function(eventName) {
+        _this.registerEventHandler(eventName);
+      });
+    },
+
+    registerEventHandler: function(eventName) {
+      var handler = this.eventHandlers[eventName];
+
+      if (handler !== undefined) {
+        this.listenTo(App.vent, eventName, handler);
+      } else {
+        throw 'no handler for ' + eventName;
+      }
+    },
+
+    eventHandlers: {
+      'character:scores:swap': function(event) {
+        this.swapScores(event.to, event.from);
+      }
     }
   });
 

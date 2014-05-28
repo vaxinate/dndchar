@@ -13,6 +13,7 @@ function (Backbone, Character, AbilityScores) {
     index: function() {
       App.addInitializer(function () {
         this.character = new Character();
+        this.character.registerEventHandlers('character:scores:swap');
 
         this.addRegions({
           abilityScores: '#ability-scores'
