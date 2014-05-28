@@ -1,7 +1,7 @@
 define([
   "underscore",
   "backbone",
-  "backbone.computedfields"
+  "backbone.compute"
 ],
 
 function (_, Backbone) {
@@ -23,7 +23,7 @@ function (_, Backbone) {
 
   var calcMod = function(score) {
     distance = score - 10;
-    return distance / 2;
+    return Math.floor(distance / 2);
   }
 
   var Character = Backbone.Model.extend({
@@ -37,7 +37,7 @@ function (_, Backbone) {
     },
 
     initialize: function(options) {
-      this.computedFields = Backbone.ComputedFields(this);
+      Backbone.Compute(this);
       // bubble up events to the app vent
       this.on('all', function(eventName, object) {
         App.vent.trigger("character:" + eventName, object);
@@ -46,13 +46,30 @@ function (_, Backbone) {
       this.listenTo(App.vent, 'character:swapScores', this.onScoreSwap);
     },
 
-    computed: {
-      strMod: { get: function() { return calcMod(this.get('str')) } },
-      conMod: { get: function() { return calcMod(this.get('con')) } },
-      dexMod: { get: function() { return calcMod(this.get('dex')) } },
-      intMod: { get: function() { return calcMod(this.get('int')) } },
-      wisMod: { get: function() { return calcMod(this.get('wis')) } },
-      chaMod: { get: function() { return calcMod(this.get('cha')) } },
+    strMod: {
+      fields: ['str'],
+      compute: function() { return calcMod(this.get('str')) }
+    },
+
+    conMod: {
+      fields: ['con'],
+      compute: function() { return calcMod(this.get('con')) }
+    },
+    dexMod: {
+      fields: ['dex'],
+      compute: function() { return calcMod(this.get('dex')) }
+    },
+    intMod: {
+      fields: ['int'],
+      compute: function() { return calcMod(this.get('int')) }
+    },
+    wisMod: {
+      fields: ['wis'],
+      compute: function() { return calcMod(this.get('wis')) }
+    },
+    chaMod: {
+      fields: ['cha'],
+      compute: function() { return calcMod(this.get('cha')) }
     },
 
     randomizeScores: function() {

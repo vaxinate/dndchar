@@ -6,7 +6,7 @@
       <div class="swap" data-swap-from="str"></div>
     </td>
     <td>
-      <%= strMod %>
+      <%= strMod >= 0 ? '+' : null %><%= strMod %>
     </td>
   </tr>
   <tr>
@@ -16,7 +16,7 @@
       <div class="swap" data-swap-from="con"></div>
     </td>
     <td>
-      <%= conMod %>
+      <%= conMod >= 0 ? '+' : null %><%= conMod %>
     </td>
   </tr>
   <tr>
@@ -26,7 +26,7 @@
       <div class="swap" data-swap-from="dex"></div>
     </td>
     <td>
-      <%= dexMod %>
+      <%= dexMod >= 0 ? '+' : null %><%= dexMod %>
     </td>
   </tr>
   <tr>
@@ -36,7 +36,7 @@
       <div class="swap" data-swap-from="cha"></div>
     </td>
     <td>
-      <%= chaMod %>
+      <%= chaMod >= 0 ? '+' : null %><%= chaMod %>
     </td>
   </tr>
   <tr>
@@ -46,7 +46,7 @@
       <div class="swap" data-swap-from="int"></div>
     </td>
     <td>
-      <%= intMod %>
+      <%= intMod >= 0 ? '+' : null %><%= intMod %>
     </td>
   </tr>
   <tr>
@@ -56,7 +56,7 @@
       <div class="swap" data-swap-from="wis"></div>
     </td>
     <td>
-      <%= wisMod %>
+      <%= wisMod >= 0 ? '+' : null %><%= wisMod %>
     </td>
   </tr>
 </table>
