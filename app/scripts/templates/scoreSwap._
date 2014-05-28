@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <a data-toggle="dropdown" class="fa fa-refresh" href="#"></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <% _.each(swapTo, function(label) { %>
+      <li data-swap-to="<%= label %>"><%= label %></li>
+    <% }); %>
+  </ul>
+</div>

@@ -35,6 +35,8 @@ function (_, Backbone) {
       this.on('all', function(eventName, object) {
         App.vent.trigger("character:" + eventName, object);
       });
+
+      this.listenTo(App.vent, 'character:swapScores', this.onScoreSwap);
     },
 
     randomizeScores: function() {
@@ -42,6 +44,17 @@ function (_, Backbone) {
       var scores = _.map(score_keys, function (key) { return rollScore() });
 
       this.set( _.object(score_keys, scores) )
+    },
+
+    swap: function(from, to) {
+      var options = {}
+      options[from] = this.get(to);
+      options[to] = this.get(from);
+      this.set(options);
+    },
+
+    onScoreSwap: function(scoreLabelPair) {
+      this.swap(scoreLabelPair[0], scoreLabelPair[1])
     }
   });
 

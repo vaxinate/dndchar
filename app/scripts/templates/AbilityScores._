@@ -2,26 +2,44 @@
   <tr>
     <td>str</td>
     <td><%= str %></td>
+    <td class="actions">
+      <div class="swap" data-swap-from="str"></div>
+    </td>
   </tr>
   <tr>
     <td>con</td>
     <td><%= con %></td>
+    <td class="actions">
+      <div class="swap" data-swap-from="con"></div>
+    </td>
   </tr>
   <tr>
     <td>dex</td>
     <td><%= dex %></td>
+    <td class="actions">
+      <div class="swap" data-swap-from="dex"></div>
+    </td>
   </tr>
   <tr>
     <td>cha</td>
     <td><%= cha %></td>
+    <td class="actions">
+      <div class="swap" data-swap-from="cha"></div>
+    </td>
   </tr>
   <tr>
     <td>int</td>
     <td><%= int %></td>
+    <td class="actions">
+      <div class="swap" data-swap-from="int"></div>
+    </td>
   </tr>
   <tr>
     <td>wis</td>
     <td><%= wis %></td>
+    <td class="actions">
+      <div class="swap" data-swap-from="wis"></div>
+    </td>
   </tr>
 </table>
 <button class="btn btn-primary js-randomize">randomize!</button>
