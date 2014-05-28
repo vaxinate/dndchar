@@ -22,7 +22,7 @@ function (_, Backbone) {
   };
 
   var calcMod = function(score) {
-    distance = score - 10;
+    var distance = score - 10;
     return Math.floor(distance / 2);
   }
 
