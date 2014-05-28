@@ -4,7 +4,7 @@
   "dependencies": {
     "requirejs": "~2.1.4",
     "text": "~2.0.12",
-    "bootstrap": "~2.3.1",
+    "bootstrap": "~3.1.1",
     "marionette": "~1.0.2",
     "backbone.wreqr": "0.2.0",
     "backbone.eventbinder": "1.0.2",

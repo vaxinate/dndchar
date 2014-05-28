@@ -9,6 +9,7 @@ requirejs.config({
         'backbone.wreqr' : '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.eventbinder' : '../bower_components/backbone.eventbinder/lib/amd/backbone.eventbinder',
         'backbone.babysitter' : '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
+        'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
     },
     shim: {
         backbone: {
@@ -17,6 +18,9 @@ requirejs.config({
         },
         underscore: {
             exports: '_'
+        },
+        bootstrap: {
+          deps: ["jquery"]
         }
     }
 });
