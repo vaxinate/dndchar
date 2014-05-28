@@ -5,12 +5,18 @@
     <td class="actions">
       <div class="swap" data-swap-from="str"></div>
     </td>
+    <td>
+      <%= strMod %>
+    </td>
   </tr>
   <tr>
     <td>con</td>
     <td><%= con %></td>
     <td class="actions">
       <div class="swap" data-swap-from="con"></div>
+    </td>
+    <td>
+      <%= conMod %>
     </td>
   </tr>
   <tr>
@@ -19,12 +25,18 @@
     <td class="actions">
       <div class="swap" data-swap-from="dex"></div>
     </td>
+    <td>
+      <%= dexMod %>
+    </td>
   </tr>
   <tr>
     <td>cha</td>
     <td><%= cha %></td>
     <td class="actions">
       <div class="swap" data-swap-from="cha"></div>
+    </td>
+    <td>
+      <%= chaMod %>
     </td>
   </tr>
   <tr>
@@ -33,12 +45,18 @@
     <td class="actions">
       <div class="swap" data-swap-from="int"></div>
     </td>
+    <td>
+      <%= intMod %>
+    </td>
   </tr>
   <tr>
     <td>wis</td>
     <td><%= wis %></td>
     <td class="actions">
       <div class="swap" data-swap-from="wis"></div>
+    </td>
+    <td>
+      <%= wisMod %>
     </td>
   </tr>
 </table>

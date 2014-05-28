@@ -1,6 +1,7 @@
 define([
   "underscore",
-  "backbone"
+  "backbone",
+  "backbone.computedfields"
 ],
 
 function (_, Backbone) {
@@ -18,6 +19,11 @@ function (_, Backbone) {
     // sort the roles, ditch the lowest one, sum remaining rolls
     rolls.sort().reverse().pop()
     return _.reduce(rolls, function(memo, num){ return memo + num; }, 0);
+  };
+
+  var calcMod = function(score) {
+    distance = score - 10;
+    return distance / 2;
   }
 
   var Character = Backbone.Model.extend({
@@ -31,12 +37,22 @@ function (_, Backbone) {
     },
 
     initialize: function(options) {
+      this.computedFields = Backbone.ComputedFields(this);
       // bubble up events to the app vent
       this.on('all', function(eventName, object) {
         App.vent.trigger("character:" + eventName, object);
       });
 
       this.listenTo(App.vent, 'character:swapScores', this.onScoreSwap);
+    },
+
+    computed: {
+      strMod: { get: function() { return calcMod(this.get('str')) } },
+      conMod: { get: function() { return calcMod(this.get('con')) } },
+      dexMod: { get: function() { return calcMod(this.get('dex')) } },
+      intMod: { get: function() { return calcMod(this.get('int')) } },
+      wisMod: { get: function() { return calcMod(this.get('wis')) } },
+      chaMod: { get: function() { return calcMod(this.get('cha')) } },
     },
 
     randomizeScores: function() {
