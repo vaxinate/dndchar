@@ -61,3 +61,4 @@
   </tr>
 </table>
 <button class="btn btn-primary js-randomize">randomize!</button>
+<button class="btn btn-primary js-template">template</button>

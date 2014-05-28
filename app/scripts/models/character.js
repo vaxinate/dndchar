@@ -71,9 +71,15 @@ function (_, Backbone) {
     },
 
     randomizeScores: function() {
-      var score_keys = ['str', 'con', 'int', 'wis', 'cha', 'dex']
-      var scores = _.map(score_keys, function (key) { return rollScore() });
+      this.resetScores(_.times(6, function(n) { return rollScore(); }));
+    },
 
+    applyDefaultScores: function() {
+      this.resetScores([16, 14, 13, 12, 10, 8]);
+    },
+
+    resetScores: function(scores) {
+      var score_keys = ['str', 'con', 'int', 'wis', 'cha', 'dex'];
       this.set( _.object(score_keys, scores) )
     },
 

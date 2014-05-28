@@ -9,7 +9,8 @@ function (Backbone, Marionette, ScoreSwap, template) {
   return Backbone.Marionette.ItemView.extend({
     template: _.template(template),
     events: {
-      'click .js-randomize': 'onClickRandomize'
+      'click .js-randomize': 'onClickRandomize',
+      'click .js-template': 'onClickTemplate'
     },
 
     initialize: function(options) {
@@ -19,6 +20,10 @@ function (Backbone, Marionette, ScoreSwap, template) {
 
     onClickRandomize: function(e) {
       this.model.randomizeScores();
+    },
+
+    onClickTemplate: function(e) {
+      this.model.applyDefaultScores();
     },
 
     afterRender: function() {
