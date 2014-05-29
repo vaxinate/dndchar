@@ -5,7 +5,7 @@ requirejs.config({
         backbone: '../bower_components/backbone/backbone',
         jquery: '../bower_components/jquery/dist/jquery',
         marionette: '../bower_components/marionette/lib/core/amd/backbone.marionette',
-        underscore: '../bower_components/lodash/lodash',
+        underscore: '../bower_components/lodash/dist/lodash',
         'backbone.wreqr' : '../bower_components/backbone.wreqr/lib/backbone.wreqr',
         'backbone.babysitter' : '../bower_components/backbone.babysitter/lib/backbone.babysitter',
         'backbone.compute': 'vendor/backbone.compute',
