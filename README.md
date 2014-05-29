@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/vaxinate/dndchar.png?label=ready&title=Ready)](http://waffle.io/vaxinate/dndchar)
+
 dndchar
 =======
 
