@@ -60,5 +60,15 @@
     </td>
   </tr>
 </table>
+
+<div>
+  <label> Initiative </label>
+  <%= initiative %>
+</div>
+
+<div>
+  <label> Unarmored AC </label>
+  <%= unarmoredAC %>
+</div>
 <button class="btn btn-primary js-randomize">randomize!</button>
 <button class="btn btn-primary js-template">template</button>
