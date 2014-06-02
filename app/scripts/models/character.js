@@ -70,6 +70,11 @@ function (_, Backbone) {
       compute: function() { return calcMod(this.get('cha')) }
     },
 
+    initiative: {
+      fields: ['dexMod'],
+      compute: function() { return this.get('dexMod') || 0 }
+    },
+
     randomizeScores: function() {
       this.resetScores(_.times(6, function(n) { return rollScore(); }));
     },
