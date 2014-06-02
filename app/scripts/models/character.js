@@ -72,7 +72,12 @@ function (_, Backbone) {
 
     initiative: {
       fields: ['dexMod'],
-      compute: function() { return this.get('dexMod') || 0 }
+      compute: function() { return this.get('dexMod') }
+    },
+
+    unarmoredAC: {
+      fields: ['dexMod'],
+      compute: function() { return (10 + this.get('dexMod')) }
     },
 
     randomizeScores: function() {
