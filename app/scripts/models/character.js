@@ -1,10 +1,11 @@
 define([
   "underscore",
+  "models/klass",
   "backbone",
   "backbone.compute"
 ],
 
-function (_, Backbone) {
+function (_, Klass, Backbone) {
   var roll = function(numSides) {
     return 1 + Math.floor(Math.random() * numSides);
   };
@@ -28,12 +29,13 @@ function (_, Backbone) {
 
   var Character = Backbone.Model.extend({
     defaults: {
-      'str': 0,
-      'dex': 0,
-      'con': 0,
-      'int': 0,
-      'wis': 0,
-      'cha': 0
+      'str': 8,
+      'dex': 8,
+      'con': 8,
+      'int': 8,
+      'wis': 8,
+      'cha': 8,
+      'klass': new Klass()
     },
 
     initialize: function(options) {
@@ -80,6 +82,11 @@ function (_, Backbone) {
       compute: function() { return (10 + this.get('dexMod')) }
     },
 
+    maxHP: {
+      fields: ['klass', 'conMod'],
+      compute: function() { return this.get('klass').levelOneHP(this.get('conMod')) } // TODO higher levels
+    },
+
     randomizeScores: function() {
       this.resetScores(_.times(6, function(n) { return rollScore(); }));
     },
@@ -120,6 +127,9 @@ function (_, Backbone) {
     eventHandlers: {
       'character:scores:swap': function(event) {
         this.swapScores(event.to, event.from);
+      },
+      'character:klass:change': function(event) {
+        this.set({klass: event.klass});
       }
     }
   });

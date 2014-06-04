@@ -1,0 +1,8 @@
+<div class="dropdown">
+  <a data-toggle="dropdown" href="#"><%= currentKlass.get('name') %></a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <% klasses.each(function(klass) { %>
+      <li data-select-klass="<%= klass.get('name') %>"><%= klass.get('name') %></li>
+    <% }); %>
+  </ul>
+</div>

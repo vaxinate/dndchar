@@ -60,7 +60,11 @@
     </td>
   </tr>
 </table>
-
+<div id="klass"></div>
+<div>
+  <label>HP</label>
+  <%= maxHP %>
+</div>
 <div>
   <label> Initiative </label>
   <%= initiative %>

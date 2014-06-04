@@ -14,6 +14,7 @@ function (Backbone, Character, AbilityScores) {
       App.addInitializer(function () {
         this.character = new Character();
         this.character.registerEventHandlers('character:scores:swap');
+        this.character.registerEventHandlers('character:klass:change');
 
         this.addRegions({
           abilityScores: '#ability-scores'

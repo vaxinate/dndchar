@@ -2,10 +2,11 @@ define([
   'backbone',
   'marionette',
   'views/ScoreSwap',
+  'views/KlassView',
   'text!templates/AbilityScores._'
 ],
 
-function (Backbone, Marionette, ScoreSwap, template) {
+function (Backbone, Marionette, ScoreSwap, KlassView, template) {
   return Backbone.Marionette.ItemView.extend({
     template: _.template(template),
     events: {
@@ -31,6 +32,8 @@ function (Backbone, Marionette, ScoreSwap, template) {
         var swapper = new ScoreSwap({el: el});
         swapper.render();
       });
+
+      new KlassView({el: this.$('#klass')}).render();
     }
   });
 });
