@@ -29,6 +29,7 @@ function (_, Klass, Backbone) {
 
   var Character = Backbone.Model.extend({
     defaults: {
+      'level': 1,
       'str': 8,
       'dex': 8,
       'con': 8,
@@ -85,6 +86,11 @@ function (_, Klass, Backbone) {
     maxHP: {
       fields: ['klass', 'conMod'],
       compute: function() { return this.get('klass').levelOneHP(this.get('conMod')) } // TODO higher levels
+    },
+
+    hitDie: {
+      fields: ['level', 'klass'],
+      compute: function() { return this.get('level') + 'd' + this.get('klass').get('hitDie') }
     },
 
     randomizeScores: function() {

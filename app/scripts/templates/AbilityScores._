@@ -62,6 +62,10 @@
 </table>
 <div id="klass"></div>
 <div>
+  <label>Hit Die</label>
+  <%= hitDie %>
+</div>
+<div>
   <label>HP</label>
   <%= maxHP %>
 </div>
